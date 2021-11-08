@@ -35,6 +35,11 @@ namespace ActionFilters
             services.AddScoped<ValidationFilterAttribute>();
             services.AddScoped<ValidateEntityExistsAttribute<Movie>>();
 
+            services.Configure<ApiBehaviorOptions>(options =>
+            {
+                options.SuppressModelStateInvalidFilter = true;
+            });
+
             services.AddControllers();
         }
 
